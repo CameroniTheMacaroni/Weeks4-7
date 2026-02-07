@@ -13,7 +13,7 @@ public class Destroy : MonoBehaviour
     {
         if(transform.position.x < -12) //destroy self when it gets too far offscreen
         {
-            Destroy(gameObject);
+            Destroy(gameObject);//
         }
     }
 }
