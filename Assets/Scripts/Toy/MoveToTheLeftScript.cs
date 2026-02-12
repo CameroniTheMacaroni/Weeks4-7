@@ -1,19 +1,34 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MoveToTheLeftScript : MonoBehaviour
 {
-    public float speed = 0.1f;//how fast the planet/stars will move
+    public float speed = 1f;//how fast the planet/stars will move
     public Vector2 pos;//where the planet/stars will start
+
+    public bool isStar;
+    //public Slider speedSlider;
     void Start()
     {
-        //pos = new Vector2(12, Random.Range(6.0f, -6.0f));//spawn offscreen to the right, with a random y value
-        //transform.position = pos;
+        if(speed >= 30)//if the spawned object is going fast enough
+        {
+            isStar = true;
+        }
+        else
+        {
+            isStar = false;
+        }
+        
     }
 
     void Update()
     {
-        //pos.x -= speed;
-        transform.position = new Vector2(transform.position.x - speed, transform.position.y);
+        //speed = speedSlider.value;
+        transform.position = new Vector2(transform.position.x - speed * Time.deltaTime, transform.position.y);//move self by speed value
 
+        if (isStar)
+        {
+            transform.localScale = new Vector3(speed / 15, transform.localScale.y, transform.localScale.z);//stretch the image based on the speed (mostly for stars)
+        }
     }
 }

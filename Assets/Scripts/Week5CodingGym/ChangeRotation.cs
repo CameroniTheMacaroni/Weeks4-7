@@ -7,12 +7,13 @@ public class ChangeRotation : MonoBehaviour
     public Slider slider;
     void Start()
     {
-
+        slider = GetComponent<Slider>();
     }
 
     
     void Update()
     {
+
         rot.z = slider.value;
         transform.eulerAngles = rot;
 

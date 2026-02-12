@@ -1,7 +1,9 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Destroy : MonoBehaviour
 {
+    public Slider slider;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -13,7 +15,7 @@ public class Destroy : MonoBehaviour
     {
         if(transform.position.x < -12) //destroy self when it gets too far offscreen
         {
-            Destroy(gameObject);//
+            Destroy(gameObject);
         }
     }
 }
