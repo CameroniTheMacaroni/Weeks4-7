@@ -5,6 +5,7 @@ public class MoveToTheLeftScript : MonoBehaviour
 {
     public float speed = 1f;//how fast the planet/stars will move
     public Vector2 pos;//where the planet/stars will start
+    public float valueThatDivide = 10f;
 
     public bool isStar;
     //public Slider speedSlider;
@@ -28,7 +29,7 @@ public class MoveToTheLeftScript : MonoBehaviour
 
         if (isStar)
         {
-            transform.localScale = new Vector3(speed / 15, transform.localScale.y, transform.localScale.z);//stretch the image based on the speed (mostly for stars)
+            transform.localScale = new Vector3(speed / valueThatDivide, transform.localScale.y, transform.localScale.z);//stretch the image based on the speed (mostly for stars)
         }
     }
 }
