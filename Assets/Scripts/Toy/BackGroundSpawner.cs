@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -20,6 +21,9 @@ public class BackGroundSpawner : MonoBehaviour
     public MoveToTheLeftScript movescript;//script of the prefab that makes it move
 
     public Slider slider;
+    public TextMeshProUGUI distanceValueText;
+    public TextMeshProUGUI distanceText;
+    public float distance;
     void Start()
     {
 
@@ -28,6 +32,10 @@ public class BackGroundSpawner : MonoBehaviour
     void Update()
     {
         speed = slider.value;
+
+        distance += speed;
+        distanceText.text = "Distance travelled (km): ";
+        distanceValueText.text = distance.ToString();//set the text in the top right to be equal to the distance travelled
 
         timerPlanet += Time.deltaTime;
         timerStar += Time.deltaTime;
