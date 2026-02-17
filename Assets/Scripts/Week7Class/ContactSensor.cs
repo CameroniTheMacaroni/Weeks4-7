@@ -6,6 +6,7 @@ public class ContactSensor : MonoBehaviour
     public SpriteRenderer hazard;
     public bool touchingHazard;
     public UnityEvent onEnterHazard; 
+    public UnityEvent onExitHazard;
     public UnityEvent<float> onRandomNumber;
     
     void Start()
@@ -37,6 +38,7 @@ public class ContactSensor : MonoBehaviour
                 //we've just left the hazard
                 //N: player has not tripped the sensor
                 touchingHazard = false;
+                onExitHazard.Invoke();
                 onRandomNumber.Invoke(Random.Range(1, 100000000));
             }
             else
